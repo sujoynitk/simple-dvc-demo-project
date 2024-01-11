@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_raw_data.py --config=params.yaml
+    deps:
+    - path: data_source/winequality.csv
+      md5: ccc8d3507eb151f53f760d36abdef888
+      size: 91998
+    - path: src/get_data.py
+      md5: f2b37725ef8ca403ae26be0153981cc0
+      size: 375
+    - path: src/load_raw_data.py
+      md5: bf8c04ccaed48bb8b37e6af8b216cea2
+      size: 721
+    outs:
+    - path: data/raw/winequality.csv
+      md5: d98e8f2eca228c11c4de1cc96866a54d
+      size: 93598
+  split_data:
+    cmd: python src/process_raw_data.py --config=params.yaml
+    deps:
+    - path: data/raw/winequality.csv
+      md5: d98e8f2eca228c11c4de1cc96866a54d
+      size: 93598
+    - path: src/get_data.py
+      md5: f2b37725ef8ca403ae26be0153981cc0
+      size: 375
+    - path: src/process_raw_data.py
+      md5: fac61575385f4755e854b4059fc1f754
+      size: 1050
+    outs:
+    - path: data/processed/test_winequality.csv
+      md5: 01718da3bd6e206060ed00667ca1a389
+      size: 18831
+    - path: data/processed/train_winequality.csv
+      md5: 4bccf4d668cdc60115de42ba74d416ab
+      size: 74913
+  train_and_evaluate_models:
+    cmd: python src/train_and_evaluate_models.py --config=params.yaml
+    deps:
+    - path: data/processed/test_winequality.csv
+      md5: 01718da3bd6e206060ed00667ca1a389
+      size: 18831
+    - path: data/processed/train_winequality.csv
+      md5: 4bccf4d668cdc60115de42ba74d416ab
+      size: 74913
+    - path: src/get_data.py
+      md5: f2b37725ef8ca403ae26be0153981cc0
+      size: 375
+    - path: src/train_and_evaluate_models.py
+      md5: edd1d425ba23d22a5f32587eff0eb4e1
+      size: 2392
+    params:
+      params.yaml:
+        training_models.ElasticNet.params.alpha: 0.01
+        training_models.ElasticNet.params.l1_ratio: 0.6
+    outs:
+    - path: models/model.joblib
+      md5: 5ec0591bdb64dcf8ef3f0aa2c45f78da
+      size: 1369
+    - path: report/params.json
+      md5: 103e3dd4c4c64bd9d70b2609819d3af3
+      size: 45
+    - path: report/scores.json
+      md5: a822c35c164dd97dce2a38035ea1364b
+      size: 100

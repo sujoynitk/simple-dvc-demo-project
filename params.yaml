@@ -1,0 +1,19 @@
+data_path:
+  source_data_path: data_source/winequality.csv
+  loaded_data_path: data/raw/winequality.csv
+  processed_data_path:
+    train_data_path: data/processed/train_winequality.csv
+    test_data_path: data/processed/test_winequality.csv
+training_models:
+  ElasticNet:
+    params:
+      alpha: 0.01
+      l1_ratio: 0.6
+model_dir: models
+reports:
+  scores: report/scores.json
+  params: report/params.json
+others:
+  target_column: TARGET
+  random_state: 42
+  test_size: 0.2

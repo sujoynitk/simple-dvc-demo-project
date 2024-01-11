@@ -33,3 +33,12 @@ dvc add data_source/winequality.csv
 git add .
 
 git commit -m "first commit"
+
+#Commit further updates to README file
+git add * && git commit -m "update README.md file"
+
+Now create a github repository and follow the below commands to push your local changes to git
+
+git remote add origin https://github.com/sujoynitk/simple-dvc-demo-project.git
+git branch -M main
+git push origin main
