@@ -1,0 +1,13 @@
+README.md
+setup.py
+src/__init__.py
+src/get_data.py
+src/load_raw_data.py
+src/process_raw_data.py
+src/train_and_evaluate_models.py
+tests/__init__.py
+tests/test_validation.py
+winequality.egg-info/PKG-INFO
+winequality.egg-info/SOURCES.txt
+winequality.egg-info/dependency_links.txt
+winequality.egg-info/top_level.txt
