@@ -4,4 +4,6 @@ scikit-learn
 pandas
 tox
 pytest
+flake8
+flask
 -e .

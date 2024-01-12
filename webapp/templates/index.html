@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <style>
+            body {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                line-height: 1.8;
+                min-height: 100vh;
+                background: #ffffff;
+                flex-direction: column;
+            }
+
+            /* Main container styling */
+            .main {
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                padding: 20px;
+                transition: transform 0.2s;
+                width: 600px;
+            }
+
+            form {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            h1 {
+                text-align: center;
+                color: green;
+            }
+
+            input {
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div class="main">
+                <h1>Welcome To Wine quality prediction application</h1>
+                <form method="POST">
+                    <div class="form-group">
+                        <p>
+                            <label>Fixed Acidity       :
+                                <input id="fixed_acidity" name="fixed_acidity" type="number" min="4" max="15"/></label>
+                        </p>
+                        <p>
+                            <label>Volatile Acidity    :
+                                <input id="volatile_acidity" name="volatile_acidity" type="number" min="0.10" max="1.46"/></label>
+                        </p>
+                        <p>
+                            <label>Citric Acid         :
+                                <input id="citric_acid" name="citric_acid" type="number" min="0" max="1.0"/></label>
+                        </p>
+                        <p>
+                            <label>Residual Sugar      :
+                                <input id="residual_sugar" name="residual_sugar" type="number" min="0.9" max="15.5"/></label>
+                        </p>
+                        <p>
+                            <label>Chlorides           :
+                                <input id="chlorides" name="chlorides" type="number" min="0.012" max="0.611"/></label>
+                        </p>
+                        <p>
+                            <label>Free Sulfur Dioxide :
+                                <input id="free_sulfur_dioxide" name="free_sulfur_dioxide" type="number" min="1.0" max="72.0"/></label>
+                        </p>
+                        <p>
+                            <label>Total Sulfur Dioxide:
+                                <input id="total_sulfur_dioxide" name="total_sulfur_dioxide" type="number" min="6.0" max="289.0"/></label>
+                        </p>
+                        <p>
+                            <label>Density             :                                      
+                                <input id="density" name="density" type="number" min="0.99" max="1.02"/></label>
+                        </p>
+                        <p>
+                            <label>pH                  :                    
+                                <input id="pH" name="pH" type="number" min="2.74" max="4.01"/></label>
+                        </p>
+                        <p>
+                            <label>Sulphates           :            
+                                <input id="sulphates" name="sulphates" type="number" min="0.33" max="2.0"/></label>
+                        </p>
+                        <p>
+                            <label>Alcohol             :              
+                                <input id="alcohol" name="alcohol" type="number" min="8.4" max="14.9"/></label>
+                        </p>
+                        <p>
+                            <button type="submit">Predict</button>
+                        </p>
+                    <div class="form-group">
+                </form>
+            </div>
+            <div class="result">
+                <form>
+                    <div class="form-group">
+                        <label>
+                            <blockquote>
+                                <p>Prediction:</p>
+                            </blockquote>
+                        </label>
+                        <textarea readonly id="exTextarea" rows="5">{{ response }}</textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

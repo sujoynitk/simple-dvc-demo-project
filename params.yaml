@@ -10,6 +10,8 @@ training_models:
       alpha: 0.01
       l1_ratio: 0.1
 model_dir: models
+prediction_model: prediction/model/model.joblib
+model_input_schema_path: prediction/model_input_schema.json
 reports:
   scores: report/scores.json
   params: report/params.json
